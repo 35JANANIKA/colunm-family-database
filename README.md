@@ -61,32 +61,11 @@ Display library1 Table:
 
 library1> SELECT * FROM library1;
 
- book_id | author       | available_copies | num_copies | title               | year_published
----------+--------------+------------------+------------+---------------------+----------------
-     105 |       devika |               15 |         15 |       queen of fire |           2021
-     100 |       joseph |                5 |          5 | believe in yourself |           2010
-     104 | rhonda byrne |                5 |          5 |          the secret |           2006
-     102 | gunjan verma |                6 |          6 |                cbot |           2014
-     106 | edwin arnoid |               10 |         10 |   the light of asia |           1879
-     101 |  abdul kalam |               10 |         10 |        wins of fire |           1999
-     103 |  vinay kumar |                2 |          2 |    mobile computing |           2011
-(7 rows)
-
 Display users Table:
 
 SELECT * FROM users;
 
- id | address       | email     | name
-----+---------------+-----------+--------
-  5 |         erode | xyz@gmail |    ric
-  1 |  first street | abc@gmail |    avi
-  2 | street second | xxx@gmail | shasha
-  4 |       t nagar | zzz@gmail |   sara
-  3 |    new street | yyy@gmail |   damy
-
-(5 rows)
-
-DELETE 
+ DELETE 
 
 SYNTAX:
 
@@ -96,18 +75,7 @@ WHERE <primary_key> = <value>;
 DELETE VALUES IN TABLE:
 
 library1> DELETE FROM library1 WHERE book_id=101;
-library1> SELECT * FROM library1;
 
- book_id | author       | available_copies | num_copies | title               | year_published
----------+--------------+------------------+------------+---------------------+----------------
-     105 |       devika |               15 |         15 |       queen of fire |           2021
-     100 |       joseph |                5 |          5 | believe in yourself |           2010
-     104 | rhonda byrne |                5 |          5 |          the secret |           2006
-     102 | gunjan verma |                6 |          6 |                cbot |           2014
-     106 | edwin arnoid |               10 |         10 |   the light of asia |           1879
-     103 |  vinay kumar |                2 |          2 |    mobile computing |           2011
-
-(6 rows)
 UPDATE
 
 SYNTAX:
@@ -119,18 +87,6 @@ WHERE <primary_key> = <key_value>;
 Update in library1 Table:
 
 library1> UPDATE library1 SET year_published=1880 WHERE book_id=106;
-library1> SELECT * FROM library1;
-
- book_id | author       | available_copies | num_copies | title               | year_published
----------+--------------+------------------+------------+---------------------+----------------
-     105 |       devika |               15 |         15 |       queen of fire |           2021
-     100 |       joseph |                5 |          5 | believe in yourself |           2010
-     104 | rhonda byrne |                5 |          5 |          the secret |           2006
-     102 | gunjan verma |                6 |          6 |                cbot |           2014
-     106 | edwin arnoid |               10 |         10 |   the light of asia |           1880
-     103 |  vinay kumar |                2 |          2 |    mobile computing |           2011
-
-(6 rows)
 
 SEARCH
 
