@@ -1,0 +1,65 @@
+CREATE KEYSPACE library1 WITH replication ={'class': 'SimpleStrategy','replication_factor':2};
+cqlsh> use library1;
+cqlsh:library1> CREATE TABLE library1(book_id int,title text,author text,year_published int,num_copies int,available_copies int,PRIMARY KEY (book_id));
+cqlsh:library1> INSERT INTO library1(book_id,title,author,year_published,num_copies,available_copies)VALUES(100,'believe in yourself','joseph',2010,5,5);
+cqlsh:library1>  INSERT INTO library1(book_id,title,author,year_published,num_copies,available_copies)VALUES(101,'wins of fire','abdul kalam',1999,10,10);
+cqlsh:library1> INSERT INTO library1(book_id,title,author,year_published,num_copies,available_copies)VALUES(102,'cbot','gunjan verma',2014,6,6);
+cqlsh:library1> INSERT INTO library1(book_id,title,author,year_published,num_copies,available_copies)VALUES(103,'mobile computing','vinay kumar',2011,2,2);
+cqlsh:library1>  INSERT INTO library1(book_id,title,author,year_published,num_copies,available_copies)VALUES(104,'the secret','rhonda byrne',2006,5,5);
+cqlsh:library1> INSERT INTO library1(book_id,title,author,year_published,num_copies,available_copies)VALUES(105,'queen of fire','devika',2021,15,15);
+cqlsh:library1> INSERT INTO library1(book_id,title,author,year_published,num_copies,available_copies)VALUES(106,'the light of asia','edwin arnoid',1879,10,10);
+cqlsh:library1> SELECT * FROM library1;
+
+ book_id | author       | available_copies | num_copies | title               | year_published
+---------+--------------+------------------+------------+---------------------+----------------
+     105 |       devika |               15 |         15 |       queen of fire |           2021
+     100 |       joseph |                5 |          5 | believe in yourself |           2010
+     104 | rhonda byrne |                5 |          5 |          the secret |           2006
+     102 | gunjan verma |                6 |          6 |                cbot |           2014
+     106 | edwin arnoid |               10 |         10 |   the light of asia |           1879
+     101 |  abdul kalam |               10 |         10 |        wins of fire |           1999
+     103 |  vinay kumar |                2 |          2 |    mobile computing |           2011
+(7 rows)
+cqlsh:library1> DELETE FROM library1 WHERE book_id=101;
+cqlsh:library1> SELECT * FROM library1;
+
+ book_id | author       | available_copies | num_copies | title               | year_published
+---------+--------------+------------------+------------+---------------------+----------------
+     105 |       devika |               15 |         15 |       queen of fire |           2021
+     100 |       joseph |                5 |          5 | believe in yourself |           2010
+     104 | rhonda byrne |                5 |          5 |          the secret |           2006
+     102 | gunjan verma |                6 |          6 |                cbot |           2014
+     106 | edwin arnoid |               10 |         10 |   the light of asia |           1879
+     103 |  vinay kumar |                2 |          2 |    mobile computing |           2011
+
+(6 rows)
+cqlsh:library1> UPDATE library1 SET year_published=1880 WHERE book_id=106;
+cqlsh:library1> SELECT * FROM library1;
+
+ book_id | author       | available_copies | num_copies | title               | year_published
+---------+--------------+------------------+------------+---------------------+----------------
+     105 |       devika |               15 |         15 |       queen of fire |           2021
+     100 |       joseph |                5 |          5 | believe in yourself |           2010
+     104 | rhonda byrne |                5 |          5 |          the secret |           2006
+     102 | gunjan verma |                6 |          6 |                cbot |           2014
+     106 | edwin arnoid |               10 |         10 |   the light of asia |           1880
+     103 |  vinay kumar |                2 |          2 |    mobile computing |           2011
+
+(6 rows)
+cqlsh:library1> CREATE TABLE users(id int PRIMARY KEY,name text,email text,address text);
+cqlsh:library1>INSERT INTO users(id,name,email,address)VALUES(1,'avi','abc@gmail','first street');
+cqlsh:library1> INSERT INTO users(id,name,email,address)VALUES(2,'shasha','xxx@gmail','street second');
+cqlsh:library1> INSERT INTO users(id,name,email,address)VALUES(3,'damy','yyy@gmail','new street');
+cqlsh:library1>INSERT INTO users(id,name,email,address)VALUES(4,'sara','zzz@gmail','t nagar');
+cqlsh:library1> INSERT INTO users(id,name,email,address)VALUES(5,'ric','xyz@gmail','erode');
+cqlsh:library1> SELECT * FROM users;
+
+ id | address       | email     | name
+----+---------------+-----------+--------
+  5 |         erode | xyz@gmail |    ric
+  1 |  first street | abc@gmail |    avi
+  2 | street second | xxx@gmail | shasha
+  4 |       t nagar | zzz@gmail |   sara
+  3 |    new street | yyy@gmail |   damy
+
+(5 rows)
